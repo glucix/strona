@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='login.css'>
+    <script src='main.js'></script>
+    <link rel="shortcut icon" href="photos/tlologa.png" type="image/x-icon">
+</head>
+<body>
+    <section class="section">
+        <form>
+            <h1>Log in</h1>
+            <div class="inputbox">
+                <ion-icon name="mail-outline"></ion-icon>
+                <input type="email" required placeholder="">
+                <label for="">User</label>
+            </div>
+            <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" required placeholder="">
+                <label for="">Password</label>
+            </div>
+            <div class="forget">
+            <label class="checkbox-btn"><p>Remember</p>
+            <label for="checkbox"></label>
+            <input id="checkbox" type="checkbox">
+            <span class="checkmark"></span>
+            </label>
+            <a href="forgot.html">Forgot Password</a>
+            </div>
+            <button type="button" onclick="window.location.href='hub.html';">Login</button>
+            <div class="register">
+                <p>I don't have an account <a href="register.html">Register</a></p>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kasyno - Automat do Gry</title>
+    <link rel="stylesheet" href="automat.css">
+    <link rel="shortcut icon" href="photos/tlologa.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="logo">
+    <a href="hub.html"><img src="photos/logo.gif" alt=""></a>
+</div>
+<div class="container2">
+    <div class="sidebar" id="sidebar">
+        <div class="close-icon" id="closeIcon">
+            <i class="fas fa-times"></i>
+        </div>
+        <!-- Kategoria GRY -->
+        <div class="category all" id="toggleButtonGry">GRY <span class="arrow" id="arrowGry">&#x25B6;</span></div>   
+        <div class="hidden-categories" id="categoriesGry">
+            <a href="saper.html"><div class="category">Saper</div></a>
+            <a href="snake.html"><div class="category">Snake</div></a>
+        </div>
+        <!-- Nowa kategoria KASYNO -->
+        <div class="category all" id="toggleButtonKasyno">KASYNO <span class="arrow" id="arrowKasyno">&#x25B6;</span></div>
+        <div class="hidden-categories" id="categoriesKasyno">
+            <a href="automat.html"><div class="category">Automaty</div></a>
+            <a href="slots.html"><div class="category">Automaty 9slots</div></a>
+            <a href="roletka.html"><div class="category">Ruletka</div></a>
+            <a href="blackjack.html"><div class="category">Blackjack</div></a>
+            <a href="https://glucix.github.io/kasyno/mnich.html"><div class="category">Mnichbet</div></a>
+            <a href="https://glucix.github.io/kasyno/plinko.html"><div class="category">Plinko</div></a>
+        </div>
+        <div class="category all" id="toggleButtonsocial">SOCIAL<span class="arrow" id="arrowsocial">&#x25B6;</span></div>
+        <div class="hidden-categories" id="categoriessocial">
+            <a href="#"><div class="category">youtube</div></a>
+            <a href="#"><div class="category">github</div></a>
+            <a href="#"><div class="category">insta</div></a>
+        </div>
+    </div>
+</div>
+<div class="menu-icon" id="menuIcon">
+    <i class="fas fa-bars"></i>
+</div>
+
+    <div class="container">
+        <h1>Automat do Gry</h1>
+        <div class="info">
+            <p>Stan konta: <span id="balance">250</span> zł</p>
+            <p>Wpisz stawkę:</p>
+            <input type="number" id="betAmount" min="1" placeholder="Wpisz kwotę" />
+        </div>
+        
+        <div class="slot-machine">
+            <div class="slot" id="slot1">🍒</div>
+            <div class="slot" id="slot2">🍋</div>
+            <div class="slot" id="slot3">🍊</div>
+        </div>
+        <button id="spinButton">Zakręć!</button>
+        <button id="allInButton">All In</button>
+        <p id="result"></p>
+    </div>
+    <script src="automat.js"></script>
+</body>
+</html>

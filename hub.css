@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    height: 11.7vh;
+    width: 100%;
+}
+
+.sidebar {
+    background-color: rgba(148, 147, 147, 0.1);
+    padding: 20px;
+    width: 300px;
+    position: fixed;
+    left: -300px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.5s ease;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #292929;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}s
+
+.menu-icon i, .close-icon i {
+    color: #fff;
+    font-size: 24px;
+}
+
+.close-icon {
+    align-self: flex-end;
+    background-color: #292929;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: none;
+}
+
+.category {
+    background-color: #292929;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+.category:hover {
+    background-color: #b3b2b2;
+    transform: scale(1.05);
+    box-shadow: 0 10px 15px rgba(38, 38, 38, 0.2);
+    color: black;
+}
+
+.hidden-categories {
+    display: none;
+}
+
+.new-tag {
+    background-color: red;
+    color: white;
+    padding: 2px 6px;
+    font-size: 10px;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: rgb(167, 165, 165);
+}
+
+.logo {
+    position: absolute;
+    display: flex;
+    background-color: #1e1e1e;
+    width: 100%;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 75px;
+}
+
+.arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.arrow.open {
+    transform: rotate(90deg);
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.content a {
+    color: red;
+    font-variant: small-caps;
+    text-decoration: none;
+}
+
+.content a:hover {
+    color: black;
+    text-decoration: underline;
+}
