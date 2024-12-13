@@ -1,74 +1,56 @@
-// Znajdź elementy HTML: ikonę menu, ikonę zamknięcia i pasek boczny
-const menuIcon = document.getElementById("menuIcon");
-const closeIcon = document.getElementById("closeIcon");
-const sidebar = document.getElementById("sidebar");
+// Update the live clock
 
-// Dodaj event listener do ikony menu, aby pokazać pasek boczny
-menuIcon.addEventListener("click", () => {
-    sidebar.style.left = "0";  // Animacja paska bocznego (wchodzi z lewej strony)
-    menuIcon.style.display = "none";  // Ukryj ikonę menu
-    closeIcon.style.display = "block";  // Pokaż ikonę zamykania w sidebarze
-});
+  // Counter Animation
+  const counters = document.querySelectorAll('.counter');
+  const speed = 50; // Adjust speed of counting
 
-// Dodaj event listener do ikony zamknięcia, aby ukryć pasek boczny
-closeIcon.addEventListener("click", () => {
-    sidebar.style.left = "-300px";  // Animacja paska bocznego (schodzi z lewej strony)
-    menuIcon.style.display = "block";  // Pokaż ikonę menu
-    closeIcon.style.display = "none";  // Ukryj ikonę zamykania
-});
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
 
-// gry
-const toggleButtonGry = document.getElementById("toggleButtonGry");
-const categoriesGry = document.getElementById("categoriesGry");
-const arrowGry = document.getElementById("arrowGry");
+      const increment = Math.ceil(target / speed);
 
-toggleButtonGry.addEventListener("click", () => {
-    if (categoriesGry.style.display === "none" || categoriesGry.style.display === "") {
-        categoriesGry.style.display = "block";  // Pokaż kategorie
-        arrowGry.classList.add("rotate");      // Obróć strzałkę
-    } else {
-        categoriesGry.style.display = "none";  // Ukryj kategorie
-        arrowGry.classList.remove("rotate");   // Przywróć strzałkę
-    }
-});
+      if (count < target) {
+        counter.innerText = count + increment;
+        setTimeout(updateCount, 10);
+      } else {
+        counter.innerText = target;
+      }
+    };
 
-// kasyno
-const toggleButtonKasyno = document.getElementById("toggleButtonKasyno");
-const categoriesKasyno = document.getElementById("categoriesKasyno");
-const arrowKasyno = document.getElementById("arrowKasyno");
-
-toggleButtonKasyno.addEventListener("click", () => {
-    if (categoriesKasyno.style.display === "none" || categoriesKasyno.style.display === "") {
-        categoriesKasyno.style.display = "block";  // Pokaż kategorie
-        arrowKasyno.classList.add("rotate");       // Obróć strzałkę
-    } else {
-        categoriesKasyno.style.display = "none";   // Ukryj kategorie
-        arrowKasyno.classList.remove("rotate");    // Przywróć strzałkę
-    }
-});
-// social media
-const toggleButtonsocial = document.getElementById("toggleButtonsocial");
-const categoriessocial = document.getElementById("categoriessocial");
-const arrowsocial = document.getElementById("arrowsocial");
-
-toggleButtonsocial.addEventListener("click", () => {
-    if (categoriessocial.style.display === "none" || categoriessocial.style.display === "") {
-        categoriessocial.style.display = "block";  // Pokaż kategorie
-        arrowsocial.classList.add("rotate");       // Obróć strzałkę
-    } else {
-        categoriessocial.style.display = "none";   // Ukryj kategorie
-        arrowsocial.classList.remove("rotate");    // Przywróć strzałkę
-    }
-});
-
-
-
-
-
-document.getElementById("scrollToTop").addEventListener("click", function() {
-    window.scrollTo({ top: 20, behavior: 'smooth' });
-});
-
-document.getElementById("scrollToMid").addEventListener("click", function() {
-    window.scrollTo({ top: 400, behavior: 'smooth' });
-});
+    updateCount();
+  });
+  // Znajdź elementy HTML: ikonę menu, ikonę zamknięcia i pasek boczny
+  const menuIcon = document.getElementById("menuIcon");
+  const closeIcon = document.getElementById("closeIcon");
+  const sidebar = document.getElementById("sidebar");
+  
+  // Funkcja do przełączania widoczności paska bocznego
+  function toggleSidebar(show) {
+      sidebar.style.left = show ? "0" : "-320px"; // Przesuń pasek boczny
+      menuIcon.style.display = show ? "none" : "block"; // Przełącz widoczność ikon
+      closeIcon.style.display = show ? "block" : "none";
+  }
+  
+  // Dodaj event listener do ikon
+  menuIcon.addEventListener("click", () => toggleSidebar(true));
+  closeIcon.addEventListener("click", () => toggleSidebar(false));
+  
+  // Funkcja uniwersalna do obsługi sekcji z kategoriami
+  function setupToggle(buttonId, categoriesId, arrowId) {
+      const toggleButton = document.getElementById(buttonId);
+      const categories = document.getElementById(categoriesId);
+      const arrow = document.getElementById(arrowId);
+  
+      toggleButton.addEventListener("click", () => {
+          const isHidden = categories.style.display === "none" || categories.style.display === "";
+          categories.style.display = isHidden ? "block" : "none"; // Przełącz widoczność kategorii
+          arrow.classList.toggle("rotate", isHidden); // Obróć strzałkę jeśli rozwinięto
+      });
+  }
+  
+  // Skonfiguruj sekcje: Gry, Kasyno, Social Media
+  setupToggle("toggleButtonGry", "categoriesGry", "arrowGry");
+  setupToggle("toggleButtonKasyno", "categoriesKasyno", "arrowKasyno");
+  setupToggle("toggleButtonsocial", "categoriessocial", "arrowsocial");
