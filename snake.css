@@ -297,61 +297,141 @@ body {
 }
 
 .sidebar {
-    background-color: rgba(148, 147, 147, 0.1);
+    background: linear-gradient(180deg, #2c2c2c, #1a1a1a); /* Gradient dla eleganckiego wyglądu */
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 20px;
     width: 300px;
     position: fixed;
-    left: -300px;
+    left: -320px;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    transition: left 0.5s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Naturalne przejście */
+    z-index: 1000;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5); /* Mocniejszy cień dla głębi */
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Drobna linia po prawej stronie */
 }
 
+/* Ikona menu */
 .menu-icon {
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: #292929;
-    padding: 10px;
-    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1); /* Subtelny półprzezroczysty wygląd */
+    padding: 12px;
     cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1100; /* Ikona nad innymi elementami */
 }
 
-.menu-icon i, .close-icon i {
+.menu-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.15);
+}
+
+.menu-icon i {
     color: #fff;
     font-size: 24px;
 }
 
+/* Ikona zamknięcia */
 .close-icon {
     align-self: flex-end;
-    background-color: #292929;
     padding: 10px;
     border-radius: 8px;
     cursor: pointer;
     display: none;
 }
 
+
+.close-icon:hover {
+    transform: scale(1.1);
+}
+
+.close-icon i {
+    color: #fff;
+    font-size: 24px;
+}
+
+/* Kategorie */
 .category {
-    background-color: #292929;
+    background-color: rgba(255, 255, 255, 0.1);
     margin-bottom: 15px;
-    padding: 10px 15px;
-    border-radius: 8px;
+    padding: 15px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    color: #eaeaea;
+    font-weight: 500;
 }
 
 .category:hover {
-    background-color: #b3b2b2;
-    transform: scale(1.05);
-    box-shadow: 0 10px 15px rgba(38, 38, 38, 0.2);
-    color: black;
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.05); /* Subtelne podniesienie i powiększenie */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
 }
 
+/* Ukryte kategorie */
 .hidden-categories {
     display: none;
+    padding-left: 15px; /* Odsunięcie dla elementów podrzędnych */
+    margin-top: 5px;
 }
 
+.hidden-categories .category {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 10px;
+    font-size: 16px;
+}
+
+.hidden-categories .category:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Animacja strzałki */
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80%; /* Mniejszy pasek boczny na urządzeniach mobilnych */
+        left: -80%;
+    }
+
+    .menu-icon, .close-icon {
+        top: 15px;
+    }
+}
+
+/* Akcenty estetyczne */
+.sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Efekt warstwy przyciemniającej */
+    z-index: -1;
+    backdrop-filter: blur(10px); /* Dodanie efektu rozmycia */
+}
+
+/* Strzałki w kategoriach */
+.arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+    color: #ccc;
+}
+
+.arrow:hover {
+    color: #fff;
+}
 .new-tag {
     background-color: red;
     color: white;
