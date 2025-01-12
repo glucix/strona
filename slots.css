@@ -8,10 +8,11 @@ body {
   font-family: Arial, sans-serif;
   background-color: #141414;
   color: #fff;
-  justify-content: center; /* Wyśrodkowanie poziome */
-  align-items: center; /* Wyśrodkowanie pionowe */
-  height: 100vh; /* Wysokość całego ekranu */
-  margin: 0; /* Usunięcie domyślnych marginesów */
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Full height of the viewport */
+  margin: 0; /* Removes default margins */
 }
 
 a {
@@ -26,13 +27,14 @@ a:hover {
 }
 
 .container {
-  position: fixed;
-  top: 25%;
-  right: 37.6%;
-  text-align: center;
+  text-align: center; /* Centers content inside the container */
   padding: 30px;
+  background-color: rgba(50, 50, 50, 0.8); /* Optional background for visibility */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Adds some depth */
+  width: 90%; /* Responsive width */
+  max-width: 400px; /* Restricts the maximum width */
 }
-
 h1 {
   color: #ffffff;
 }
@@ -288,13 +290,9 @@ select {
 
 /* Responsywność */
 @media (max-width: 768px) {
-  .sidebar {
-      width: 80%; /* Mniejszy pasek boczny na urządzeniach mobilnych */
-      left: -80%;
-  }
-
-  .menu-icon, .close-icon {
-      top: 15px;
+  .container {
+    width: 100%; /* Adjusts the container width for smaller screens */
+    margin: 0 10px; /* Adds some space on the sides */
   }
 }
 
@@ -322,7 +320,8 @@ select {
   color: #fff;
 }
 .logo {
-  position: absolute;
+  position: fixed;
+  top: 1px;
   display: flex;
   background-color: #1e1e1e;
   width: 100%;
