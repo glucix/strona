@@ -53,4 +53,5 @@
   // Skonfiguruj sekcje: Gry, Kasyno, Social Media
   setupToggle("toggleButtonGry", "categoriesGry", "arrowGry");
   setupToggle("toggleButtonKasyno", "categoriesKasyno", "arrowKasyno");
+  setupToggle("toggleButtonvkie", "categoriesvkie", "arrowvkie");
   setupToggle("toggleButtonsocial", "categoriessocial", "arrowsocial");
